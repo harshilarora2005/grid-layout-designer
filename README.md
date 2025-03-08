@@ -50,12 +50,17 @@ Then, open `http://localhost:5173/` (or the provided local address) in your brow
 react-layout-designer/
 │── src/
 │   ├── components/
-│   │   ├── Grid.js
-│   │   ├── GridItem.js
-│   │   ├── Controls.js
+│   │   ├── GridCell.js
+│   │   ├── GridContainer.js
+│   │   ├── GridControls.js
+|   |   ├── GridGenerator.js
+|   |   ├── GridItem.js
+|   |   ├── utils.jsx
 │   ├── App.js
-│   ├── main.js
-│── public/
+│   ├── index.js
+|   ├── style.css
+│── public
+|   ├── index.html
 │── package.json
 │── README.md
 ```
