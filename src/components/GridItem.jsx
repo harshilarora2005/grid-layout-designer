@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Rnd } from 'react-rnd';
-
+import { MoveDiagonal2 } from 'lucide-react';
 const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize }) => {
   const [isResizing, setIsResizing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -55,8 +55,7 @@ const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize }
           {item.number}
         </span>
         <div className="resize-handle absolute bottom-0 right-0 w-4 h-4 cursor-se-resize">
-          <div className="absolute bottom-0 right-0 w-3 h-px bg-[#1976d2] transform rotate-45 origin-bottom-right" />
-          <div className="absolute bottom-0 right-0 w-px h-3 bg-[#1976d2] transform rotate-45 origin-bottom-right" />
+          <MoveDiagonal2 color='#1976d2'/>
         </div>
       </div>
     </Rnd>

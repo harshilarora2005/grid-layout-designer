@@ -1,6 +1,5 @@
 import GridCell from './GridCell';
 import GridItem from './GridItem';
-import { Button } from '@material-tailwind/react';
 const GridContainer = ({ 
     columns, 
     rows, 

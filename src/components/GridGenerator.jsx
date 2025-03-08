@@ -70,7 +70,6 @@ const GridGenerator = () => {
     };
 
     const handleResize = (id, direction, ref) => {
-        // Use cellWidth and cellHeight for size calculations
         const refWidth = ref.offsetWidth;
         const refHeight = ref.offsetHeight;
         const newColSpan = Math.max(1, Math.round(refWidth / (cellWidth + gridGap)));
@@ -108,6 +107,7 @@ const GridGenerator = () => {
                 setGap={setGap}
                 setWidth={setWidth}
                 setHeight={setHeight}
+                setItems={setItems}
             />
             
             <GridContainer 

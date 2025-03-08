@@ -1,5 +1,5 @@
 import { Button } from "@material-tailwind/react";
-const GridControls = ({ columns, rows, gap, width, height, setColumns, setRows, setGap,setHeight,setWidth }) => {
+const GridControls = ({ columns, rows, gap, width, height, setColumns, setRows, setGap,setHeight,setWidth, setItems }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm p-4 mb-6 border border-[#e0e0e0]">
       <div className="flex gap-8 items-center justify-center">
@@ -50,7 +50,8 @@ const GridControls = ({ columns, rows, gap, width, height, setColumns, setRows, 
             type="number"
           />
         </div>
-        <Button ripple={true} color="red" size="sm">Reset</Button>
+        <Button ripple={true} color="red" size="sm"
+        onClick={(e)=> setItems([])}>Reset</Button>
       </div>
     </div>
   );
