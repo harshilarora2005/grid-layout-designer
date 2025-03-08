@@ -117,6 +117,7 @@ const GridGenerator = () => {
                 cellWidth={cellWidth}
                 cellHeight={cellHeight}
                 items={items}
+                setItems={setItems}
                 handleCellClick={handleCellClick}
                 handleDragStop={handleDragStop}
                 handleResize={handleResize}

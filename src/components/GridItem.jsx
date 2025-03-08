@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Rnd } from 'react-rnd';
-import { MoveDiagonal2 } from 'lucide-react';
-const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize }) => {
+import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize, onRemove}) => {
   const [isResizing, setIsResizing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   
@@ -41,7 +43,6 @@ const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize }
       }}
       enableResizing={{ bottomRight: true }}
       resizeHandleClasses={{ bottomRight: 'resize-handle' }}
-      // Free dragging without grid snapping during drag
       dragHandleClassName="drag-handle"
       className={`${isResizing || isDragging ? 'z-10' : ''}`}
     >
@@ -50,12 +51,19 @@ const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize }
           isDragging ? 'bg-[#bbdefb] border-[#2196f3]' : 'bg-[#e3f2fd] border-[#bbdefb] hover:shadow-lg'
         }`}
       >
+        <div className='absolute top-[-0.250rem] left-0 z-10 text-red-400 '>
+          <FontAwesomeIcon icon={faX} className='cursor-pointer'
+          onClick={(e) => {
+            e.stopPropagation(); 
+            onRemove();
+          }}/>
+        </div>
         <div className="drag-handle absolute inset-0 rounded-lg cursor-move" />
         <span className="text-xl font-semibold text-[#1976d2] pointer-events-none">
           {item.number}
         </span>
-        <div className="resize-handle absolute bottom-0 right-0 w-4 h-4 cursor-se-resize">
-          <MoveDiagonal2 color='#1976d2'/>
+        <div className="resize-handle absolute bottom-0 right-0 w-4 h-4 cursor-se-resize text-[#1976d2]">
+          <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} flip='vertical' />
         </div>
       </div>
     </Rnd>

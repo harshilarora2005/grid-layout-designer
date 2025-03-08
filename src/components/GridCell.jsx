@@ -1,3 +1,4 @@
+
 const GridCell = ({ col, row, width, height, isOccupied, onClick }) => {
   return (
     <div
@@ -6,7 +7,8 @@ const GridCell = ({ col, row, width, height, isOccupied, onClick }) => {
       } cursor-pointer`}
       style={{ width, height }}
       onClick={onClick}
-    />
+    >
+    </div>
   );
 };
 
