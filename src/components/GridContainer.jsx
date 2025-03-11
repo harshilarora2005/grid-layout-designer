@@ -10,14 +10,16 @@ const GridContainer = ({
     setItems,
     handleCellClick, 
     handleDragStop, 
-    handleResize 
+    handleResize,
+    parentRef
     }) => {
         const removeItem = (idToRemove) => {
             const updatedItems = items.filter(item => item.id !== idToRemove);
             setItems(updatedItems);
         };
         return (
-            <div className="flex-1 bg-white p-6 rounded-xl border border-[#e0e0e0] shadow-sm overflow-auto">
+            <div className="flex-1 bg-white p-6 rounded-xl border border-[#e0e0e0] shadow-sm overflow-hidden"
+            ref={parentRef}>
             <div 
                 className="relative rounded-lg overflow-hidden mx-auto"
                 style={{

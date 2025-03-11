@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import GridControls from './GridControls';
 import GridContainer from './GridContainer';
 import { checkCollision } from './utils';
@@ -13,7 +13,29 @@ const GridGenerator = () => {
     const cellWidth = width;
     const cellHeight = height;
     const gridGap = gap;
+    const parentRef = useRef(null);
+    const [parentWidth, setParentWidth] = useState(0);
+    const [parentHeight, setParentHeight] = useState(0);
 
+    useEffect(() => {
+            if (parentRef.current) {
+            setParentWidth(parentRef.current.offsetWidth);
+            setParentHeight(parentRef.current.offsetHeight);
+            }
+    });
+    useEffect(() => {
+        const updateDimensions = () => {
+            if (parentRef.current) {
+                setParentWidth(parentRef.current.offsetWidth);
+                setParentHeight(parentRef.current.offsetHeight);
+            }
+        };
+    
+        updateDimensions();
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+    
     const handleCellClick = (col, row) => {
         const existingItem = items.find(item => 
             item.col === col && 
@@ -108,6 +130,8 @@ const GridGenerator = () => {
                 setWidth={setWidth}
                 setHeight={setHeight}
                 setItems={setItems}
+                parentHeight={parentHeight}
+                parentWidth={parentWidth}
             />
             
             <GridContainer 
@@ -121,6 +145,7 @@ const GridGenerator = () => {
                 handleCellClick={handleCellClick}
                 handleDragStop={handleDragStop}
                 handleResize={handleResize}
+                parentRef={parentRef}
             />
         </div>
     );
