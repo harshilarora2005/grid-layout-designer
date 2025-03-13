@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import GridControls from './GridControls';
 import GridContainer from './GridContainer';
 import { checkCollision } from './utils';
-
+import CodeGenerator from './CodeGenerator';
 const GridGenerator = () => {
     const [columns, setColumns] = useState(5);
     const [rows, setRows] = useState(5);
@@ -89,6 +89,7 @@ const GridGenerator = () => {
                 row: boundedRow
             } : item
         ));
+        console.log(items);
     };
 
     const handleResize = (id, direction, ref) => {
@@ -114,6 +115,7 @@ const GridGenerator = () => {
                 rowSpan: newRowSpan
             } : item
         ));
+        console.log(items);
     };
 
     return (
@@ -147,6 +149,11 @@ const GridGenerator = () => {
                 handleResize={handleResize}
                 parentRef={parentRef}
             />
+            <CodeGenerator 
+                items={items}
+                width={width}
+                height={height}
+                />
         </div>
     );
 };
