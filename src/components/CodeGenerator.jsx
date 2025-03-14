@@ -13,7 +13,7 @@ const CodeGenerator = ({items,width,height}) => {
         console.log(key);
         divs = divs + `\t<div id="div${key}"> ${key} </div> \n`;
     })
-    divs = divs + '\n</div>';
+    divs = divs + '</div>';
     return (
         <div className="flex">
             <CopyCode 

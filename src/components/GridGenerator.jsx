@@ -119,41 +119,45 @@ const GridGenerator = () => {
     };
 
     return (
-        <div className="h-screen bg-[#f8f9fa] p-6 flex flex-col select-none">
-            <GridControls 
-                columns={columns}
-                rows={rows}
-                gap={gap}
-                width={width}
-                height={height}
-                setColumns={setColumns}
-                setRows={setRows}
-                setGap={setGap}
-                setWidth={setWidth}
-                setHeight={setHeight}
-                setItems={setItems}
-                parentHeight={parentHeight}
-                parentWidth={parentWidth}
-            />
-            
-            <GridContainer 
-                columns={columns}
-                rows={rows}
-                gap={gap}
-                cellWidth={cellWidth}
-                cellHeight={cellHeight}
-                items={items}
-                setItems={setItems}
-                handleCellClick={handleCellClick}
-                handleDragStop={handleDragStop}
-                handleResize={handleResize}
-                parentRef={parentRef}
-            />
-            <CodeGenerator 
-                items={items}
-                width={width}
-                height={height}
+        <div>
+            <div className="h-screen bg-[#f8f9fa] p-6 flex flex-col select-none">
+                <GridControls 
+                    columns={columns}
+                    rows={rows}
+                    gap={gap}
+                    width={width}
+                    height={height}
+                    setColumns={setColumns}
+                    setRows={setRows}
+                    setGap={setGap}
+                    setWidth={setWidth}
+                    setHeight={setHeight}
+                    setItems={setItems}
+                    parentHeight={parentHeight}
+                    parentWidth={parentWidth}
                 />
+                
+                <GridContainer 
+                    columns={columns}
+                    rows={rows}
+                    gap={gap}
+                    cellWidth={cellWidth}
+                    cellHeight={cellHeight}
+                    items={items}
+                    setItems={setItems}
+                    handleCellClick={handleCellClick}
+                    handleDragStop={handleDragStop}
+                    handleResize={handleResize}
+                    parentRef={parentRef}
+                />
+            </div>
+            <div className='p-6 flex w-max'>
+                <CodeGenerator 
+                    items={items}
+                    width={width}
+                    height={height}
+                />
+            </div>
         </div>
     );
 };
