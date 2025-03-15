@@ -49,10 +49,8 @@ const CodeGenerator = ({ items, width, height, gap, rows, columns }) => {
     divs += "</div>";
     
     return (
-        <div className="flex gap-4 items-center justify-center">
-            <div className="items-center">
-                <CopyCode code={divs} language="html" />    
-            </div>
+        <div className="flex gap-4 items-center justify-center w-full">
+            <CopyCode code={divs} language="html" />    
             <CopyCode code={css} language="css" />
         </div>
     );

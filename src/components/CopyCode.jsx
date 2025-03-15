@@ -25,7 +25,7 @@ export default function CopyCode({ code, language = "javascript" }) {
     };
 
     return (
-        <div className="relative w-full p-4 bg-gray-900 text-white rounded-lg">
+        <div className="relative h-full w-full p-4 bg-gray-900 text-white rounded-lg">
             <div className="bg-gray-800 text-white px-3 py-1 font-bold rounded-t-md uppercase">
                 {language}
             </div>
