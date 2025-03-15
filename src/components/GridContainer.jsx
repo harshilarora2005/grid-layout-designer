@@ -18,7 +18,7 @@ const GridContainer = ({
             setItems(updatedItems);
         };
         return (
-            <div className="flex-1 bg-white p-6 rounded-xl border border-[#e0e0e0] shadow-sm overflow-hidden"
+            <div className="flex-1 bg-white p-6 rounded-xl border border-[#e0e0e0] shadow-sm overflow-hidden items-center"
             ref={parentRef}>
             <div 
                 className="relative rounded-lg overflow-hidden mx-auto"

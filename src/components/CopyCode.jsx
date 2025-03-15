@@ -26,7 +26,10 @@ export default function CopyCode({ code, language = "javascript" }) {
 
     return (
         <div className="relative w-full p-4 bg-gray-900 text-white rounded-lg">
-            <pre className="overflow-x-auto">
+            <div className="bg-gray-800 text-white px-3 py-1 font-bold rounded-t-md uppercase">
+                {language}
+            </div>
+            <pre className="max-h-[75vh] overflow-x-auto overflow-y-auto">
                 <code ref={codeRef} className={`language-${language}`}>
                     {code}
                 </code>

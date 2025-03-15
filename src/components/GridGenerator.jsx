@@ -151,11 +151,14 @@ const GridGenerator = () => {
                     parentRef={parentRef}
                 />
             </div>
-            <div className='p-6 flex w-max'>
+            <div className='p-6 flex w-full justify-center h-screen bg-[#f8f9fa]'>
                 <CodeGenerator 
                     items={items}
                     width={width}
                     height={height}
+                    gap= {gap}
+                    rows = {rows}
+                    columns = {columns}
                 />
             </div>
         </div>
