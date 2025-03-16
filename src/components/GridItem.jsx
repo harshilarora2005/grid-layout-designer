@@ -6,8 +6,6 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 const GridItem = ({ item, cellWidth, cellHeight, gridGap, onDragStop, onResize, onRemove}) => {
   const [isResizing, setIsResizing] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  
-  // Calculate size and position based on grid coordinates and cell dimensions
   const width = item.colSpan * (cellWidth + gridGap) - gridGap;
   const height = item.rowSpan * (cellHeight + gridGap) - gridGap;
   const x = (item.col - 1) * (cellWidth + gridGap);
